@@ -1,5 +1,5 @@
 # Assessment Task 1
-Does selective schools or private schools or regular schools achieve higher scores in HSC (NSW)
+Does selective schools or private schools or regular schools achieve higher scores in HSC (NSW 2023-2025)
 hypothesis: Selective schools achieve higher better than other schools in average in HSC
 
 ## Identifying and Defining 
