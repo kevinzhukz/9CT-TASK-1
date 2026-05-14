@@ -1,8 +1,4 @@
 
-# main.py
-# Text-based menu UI for exploring NSW HSC School Rankings data.
-# All data logic lives in data_module.py and is imported here.
- 
 from data_module import (
     display_dataset_preview,
     display_summary_statistics,

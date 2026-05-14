@@ -1,6 +1,6 @@
-import pandas as pd
 import matplotlib
-matplotlib.use('TkAgg')  
+matplotlib.use('Agg')
+import pandas as pd
 import matplotlib.pyplot as plt
 
 dataset_df = pd.read_csv('Data/schoolrank.csv')
