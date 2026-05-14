@@ -3,9 +3,8 @@ import matplotlib
 matplotlib.use('TkAgg')  
 import matplotlib.pyplot as plt
 
- 
 dataset_df = pd.read_csv('Data/schoolrank.csv')
- 
+
 def display_dataset_preview():
     print(dataset_df)
  

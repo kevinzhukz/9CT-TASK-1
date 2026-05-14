@@ -17,7 +17,7 @@ import time
 def typewrite(text):
     for char in text:
         print(char, end='', flush=True)
-        time.sleep(0.0152)
+        time.sleep(0.015)
     print()
  
 
