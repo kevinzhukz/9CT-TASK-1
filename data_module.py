@@ -15,7 +15,7 @@ def display_summary_statistics():
  
 def search_data():
     name = input("Enter school name: ")
-    print(dataset_df[dataset_df["School"] == name])
+    print(dataset_df[dataset_df["School"].str.contains(name, case=False)])
  
 def display_visualisation():
     top10 = dataset_df.head(10)

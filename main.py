@@ -11,21 +11,37 @@ from data_module import (
     update_data_entry,
     save_changes,
 )
+
+import time
+
+def typewrite(text):
+    for char in text:
+        print(char, end='', flush=True)
+        time.sleep(0.0152)
+    print()
  
 
  
  
 def main_menu():
+    print()
+    typewrite("╔══════════════════════════════════════╗")
+    typewrite("║     Welcome to School Rankings!      ║")
+    typewrite("╚══════════════════════════════════════╝")
     while True:
-        print("\n--- Main Menu ---")
-        print("1. View dataset")
-        print("2. Summary statistics by school type")
-        print("3. Search or filter schools")
-        print("4. View a visualisation / chart")
-        print("5. Update a school's data")
-        print("6. Save changes")
-        print("7. Exit")
- 
+        print()
+        typewrite("╔══════════════════════════════════════╗")
+        typewrite("║   NSW HSC School Rankings Viewer     ║")
+        typewrite("╠══════════════════════════════════════╣")
+        typewrite("║  1. View dataset                     ║")
+        typewrite("║  2. Summary statistics               ║")
+        typewrite("║  3. Search for a school              ║")
+        typewrite("║  4. View chart                       ║")
+        typewrite("║  5. Update a school                  ║")
+        typewrite("║  6. Save changes                     ║")
+        typewrite("║  7. Exit                             ║")
+        typewrite("╚══════════════════════════════════════╝")
+
         choice = input("\nSelect an option (1-7): ").strip()
  #prints full data set
         if choice == "1":
