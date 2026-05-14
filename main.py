@@ -27,22 +27,22 @@ def main_menu():
         print("7. Exit")
  
         choice = input("\nSelect an option (1-7): ").strip()
- 
+ #prints full data set
         if choice == "1":
             display_dataset_preview()
-
+#Shows total schools + average success rate per school type
         elif choice == "2":
             display_summary_statistics()
- 
+ #Asks for a name, finds matching schools
         elif choice == "3":
             search_data()
- 
+ #Bar chart of top 10 schools
         elif choice == "4":
             display_visualisation()
- 
+ #Find a school, pick a column, change the value
         elif choice == "5":
             update_data_entry()
- 
+ #Writes the changes back to your CSV file
         elif choice == "6":
             save_changes()
  

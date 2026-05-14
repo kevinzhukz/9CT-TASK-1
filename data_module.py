@@ -1,27 +1,39 @@
- 
 import pandas as pd
+import matplotlib
+matplotlib.use('TkAgg')  # add this line
 import matplotlib.pyplot as plt
 
+ 
 dataset_df = pd.read_csv('Data/schoolrank.csv')
-
+ 
 def display_dataset_preview():
-    print("\n========FULL DATASET ========")
     print(dataset_df)
-
+ 
 def display_summary_statistics():
-    print()
-
-
-    
+    print("Total schools:", len(dataset_df))
+    print("Average success rate:", dataset_df["Success Rate (%)"].mean())
+ 
 def search_data():
-    print()
-    print
-    
+    name = input("Enter school name: ")
+    print(dataset_df[dataset_df["School"] == name])
+ 
 def display_visualisation():
-    print()
-    
+    top10 = dataset_df.head(10)
+    plt.bar(top10["School"], top10["Success Rate (%)"])
+    plt.xticks(rotation=45, ha="right")
+    plt.title("Top 10 Schools")
+    plt.ylabel("Success Rate (%)")
+    plt.gca().yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f"{x}%"))  # adds % to numbers
+    plt.tight_layout()
+    plt.savefig("chart.png")
+    print("Chart saved as chart.png!")
+ 
 def update_data_entry():
-    print()
-   
+    name = input("Enter school name: ")
+    new_rate = input("Enter new success rate: ")
+    dataset_df.loc[dataset_df["School"] == name, "Success Rate (%)"] = new_rate
+    print("Updated!")
+ 
 def save_changes():
-    print()
+    dataset_df.to_csv('Data/schoolrank.csv', index=False)
+    print("Saved!")
