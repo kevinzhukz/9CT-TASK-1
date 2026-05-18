@@ -1,4 +1,3 @@
-
 from data_module import (
     display_dataset_preview,
     display_summary_statistics,
@@ -6,6 +5,7 @@ from data_module import (
     display_visualisation,
     update_data_entry,
     save_changes,
+    display_hypothesis,
 )
 
 import time
@@ -15,10 +15,7 @@ def typewrite(text):
         print(char, end='', flush=True)
         time.sleep(0.015)
     print()
- 
 
- 
- 
 def main_menu():
     print()
     typewrite("╔══════════════════════════════════════╗")
@@ -29,42 +26,36 @@ def main_menu():
         typewrite("╔══════════════════════════════════════╗")
         typewrite("║   NSW HSC School Rankings Viewer     ║")
         typewrite("╠══════════════════════════════════════╣")
-        typewrite("║  1. View dataset                     ║")
-        typewrite("║  2. Summary statistics               ║")
-        typewrite("║  3. Search for a school              ║")
-        typewrite("║  4. View chart                       ║")
-        typewrite("║  5. Update a school                  ║")
-        typewrite("║  6. Save changes                     ║")
-        typewrite("║  7. Exit                             ║")
+        typewrite("║  1. View hypothesis                  ║")
+        typewrite("║  2. View dataset                     ║")
+        typewrite("║  3. Summary statistics               ║")
+        typewrite("║  4. Search for a school              ║")
+        typewrite("║  5. View chart                       ║")
+        typewrite("║  6. Update a school                  ║")
+        typewrite("║  7. Save changes                     ║")
+        typewrite("║  8. Exit                             ║")
         typewrite("╚══════════════════════════════════════╝")
 
-        choice = input("\nSelect an option (1-7): ").strip()
- #prints full data set
+        choice = input("\nSelect an option (1-8): ").strip()
         if choice == "1":
-            display_dataset_preview()
-#Shows total schools + average success rate per school type
+            display_hypothesis()
         elif choice == "2":
-            display_summary_statistics()
- #Asks for a name, finds matching schools
+            display_dataset_preview()
         elif choice == "3":
-            search_data()
- #Bar chart of top 10 schools
+            display_summary_statistics()
         elif choice == "4":
-            display_visualisation()
- #Find a school, pick a column, change the value
+            search_data()
         elif choice == "5":
-            update_data_entry()
- #Writes the changes back to your CSV file
+            display_visualisation()
         elif choice == "6":
-            save_changes()
- 
+            update_data_entry()
         elif choice == "7":
+            save_changes()
+        elif choice == "8":
             print("\nGoodbye!")
             break
- 
         else:
-            print("Invalid selection — please enter a number between 1 and 7.")
- 
+            print("Invalid selection — please enter a number between 1 and 8.")
 
 if __name__ == "__main__":
     main_menu()

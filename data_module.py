@@ -5,6 +5,22 @@ import matplotlib.pyplot as plt
 
 dataset_df = pd.read_csv('Data/schoolrank.csv')
 
+def display_hypothesis():
+    print("\n========  HYPOTHESIS ========")
+    print("Note: Success rate = percentage of HSC exam entries that scored Band 6 (90+)")
+    print("Selective schools achieve higher HSC success rates")
+    print("than private schools due to their academically")
+    print("selective enrolment process.")
+    print()
+    selective = dataset_df[dataset_df["Type of School"] == "Selective"]["Success Rate (%)"].mean()
+    private = dataset_df[dataset_df["Type of School"] == "Private"]["Success Rate (%)"].mean()
+    print("Average Selective school success rate:", round(selective, 2), "%")
+    print("Average Private school success rate:", round(private, 2), "%")
+    if selective > private:
+        print("\nResult: Hypothesis SUPPORTED ✓")
+    else:
+        print("\nResult: Hypothesis NOT supported ✗")
+
 def _display_table(table,df):
     print(f"\n{table}")
     print("-" * len(table))
@@ -15,8 +31,9 @@ def display_dataset_preview():
     _display_table("2023-2025 School Rankings Dataset",dataset_df)
  
 def display_summary_statistics():
+    print("Note: Success rate = percentage of HSC exam entries that scored Band 6 (90+)")
     print("Total schools:", len(dataset_df))
-    print("Average success rate:", dataset_df["Success Rate (%)"].mean())
+    print("Average success rate:", round(dataset_df["Success Rate (%)"].mean(), 2), "%")
  
 def search_data():
     name = input("Enter school name: ")
