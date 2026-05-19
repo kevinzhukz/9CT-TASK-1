@@ -10,57 +10,61 @@ hypothesis: Selective schools achieve higher better than other schools in averag
 
 #### Functional Requirements
 
-Data Loading: Consider aspects such as ability to load certain file types and handling errors in file loading (e.g. incorrect format, missing files).
+Data Loading: the system loads a CSV file (schoolrank.csv) containing NSW HSC school ranking data from 2023-2025. It handles missing values using pandas pd.to_numeric(errors='coerce').
 
-Data Cleaning: Does the system need to handle missing values or allow for filtering, sorting and grouping of data?
+Data Cleaning:The system handles missing values in the 2023 and 2024 ranking columns. data can be filtered by school type (selective, private or public).
 
-Data Analysis: What kind of statistical analysis does the system need to allow for (e.g. mean, median, mode)?
+Data Analysis: The system calculates mean success rates grouped by school type to test the hypothesis. It also calculates average rankings across 3 years.
 
-Data Visualisation: How will the data need to be visualised (e.g. Pandas dataframes / Matplotlib chart types)?
+Data Visualisation: Three matplotlib charts: a bar chart of top 10 schools, a pie chart comparing school types, and a bar chart of average rankings 2023-2025. 
 
-Data Reporting: What output should the system include, and do we need to store the final dataset somewhere (e.g. .csv or .txt file)?
+Data Reporting: Results are displayed in the terminal. Charts are saved as chart.png. Updated data is saved back to schoolrank.csv.
 
 
 #### Non function requirements
 
-Typically non-functional requirements would focus on performance, usability, reliability, scalability and security. However, for this task we are going to focus on usability and reliability, as the performance and scalability will not vary much due to only working with one or two datasets and security was a bit much to cram into the short time we have to complete the task. You are of course welcome to add a security layer (e.g. username + password) to your UI if you feel it's appropriate, and if you have time.
+Usability: Text-based menu with numbered options 1-8. typewriter used because its more interesting and is more aestetic. Clear labels and prompts for user input.
 
-For now, focus on the following:
-
-Usability: What is required from the User Interface and a 'README' document?
-
-Reliability: What is required from the system when providing information to the user on errors and ensuring data integrity?
+Reliability: Invalid menu selections show an error message. Search returns "No school found" if nothing matches or if there is an incorrect spelling.
 
 #### Use-Case
-Now we need to a develop a use-case to outline how a user might access information from the system. Remember that the user will need to be able to access the program via a user interface (text-based is fine) to look at the data itself, any visualisations and perhaps even update data depending on the system.
-
-Here is an example of how this might look - keep in mind you will need to tailor this to your system and be more specific. 
-
 Actor: User
-
-Goal: To access and interact with existing data through the program’s user interface.
-
+Goal: To access and interact with NSW HSC school ranking data (2023-2025) through the program's text-based menu.
 Preconditions:
 
-The dataset has already been preloaded into the system by an administrator / programmer.
-
-The user has access to the system interface.
+schoolrank.csv has been loaded into the Data/ folder
+The user runs main.py in the terminal
+pandas and matplotlib are installed
 
 Main Flow:
 
-User opens the program and is presented with a text-based menu.
-
+User runs the program and sees the welcome message and numbered menu
 User selects one of the following options:
-a. View visualisation (e.g., chart or graph of selected data)
-b. Search or filter data based on specific criteria
-c. Update a data entry (e.g., change a value or correct an error)
 
-System performs the requested action and outputs to user.
+View hypothesis and see if selective schools outperform private schools
+View the full dataset
+View summary statistics (total schools, average success rate)
+Search for a specific school by name
+View one of three charts (top 10, school type comparison, 3 year average)
+Update a school's success rate
+Save changes back to the CSV
+
+
+System performs the action and displays the result in the terminal. Charts are saved as chart.png.
 
 Postconditions:
 
-User has viewed and/or interacted with the data.
+User has viewed and/or interacted with the data
+Any updates made are saved to schoolrank.csv
+Data remains available for further queries
 
-Any valid updates are saved by the system.
 
-Data remains available for further queries or analysis.
+
+##### SEE-I PARAGRAPH
+Statement: Selective schools perform better than private schools in the HSC.
+
+Elaborate: This is likely because selective schools only accept students who pass an entry exam, meaning their student cohort is already academically strong before they even start high school.
+
+Example: The data shows that selective schools have an average success rate of 37.84%, compared to private schools at 24.19%. This is a difference of over 13%.
+
+Illustrate: In other words, if you picked a random HSC exam entry from a selective school, it is significantly more likely to be a Band 6 than one from a private school.
