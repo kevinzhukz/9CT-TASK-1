@@ -8,6 +8,7 @@ hypothesis: Selective schools achieve higher better than other schools in averag
 ### Mind Map
 
 
+
 #### Functional Requirements
 
 Data Loading: the system loads a CSV file (schoolrank.csv) containing NSW HSC school ranking data from 2023-2025. It handles missing values using pandas pd.to_numeric(errors='coerce').
@@ -21,7 +22,7 @@ Data Visualisation: Three matplotlib charts: a bar chart of top 10 schools, a pi
 Data Reporting: Results are displayed in the terminal. Charts are saved as chart.png. Updated data is saved back to schoolrank.csv.
 
 
-#### Non function requirements
+### Non function requirements
 
 Usability: Text-based menu with numbered options 1-8. typewriter used because its more interesting and is more aestetic. Clear labels and prompts for user input.
 
