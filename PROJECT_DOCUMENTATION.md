@@ -85,11 +85,11 @@ Postconditions:
 
 Statement: Selective schools achieve significantly higher HSC success rates than private and public schools in NSW, strongly supporting the hypothesis.
 
-Elabarate: This is likely because selective schools admit students solely based on academic ability through a competitive entry exam, meaning every student who enters has already demonstrated above average ability before starting high school. This creates a learning environment where everyone is motivated and competitive, giving selective schools a structural advantage that private schools cannot match despite having more funding and resources, and that public schools cannot match as they must accept all students in their local area regardless of ability.
+Elaborate: This is likely because selective schools admit students solely based on academic ability through a competitive entry exam, meaning every student who enters has already demonstrated above average ability before starting high school. This creates a learning environment where everyone is motivated and competitive, giving selective schools a structural advantage that private schools cannot match despite having more funding and resources, and that public schools cannot match as they must accept all students in their local area regardless of ability.
 
 Example: After analysing 149 (not including the unknown ones) NSW schools from 2023 to 2025, my program calculated that selective schools averaged a success rate of 37.84% compared to just 24.19% for private schools, a gap of over 13%. The top 8 ranked schools in 2025 were all selective, with North Sydney Boys leading at 71.6% and James Ruse at 70.43%, far ahead of the top private school Sydney Grammar at 60.99%. Even mid ranked selective schools like Gosford High School ranked 33rd outperformed many expensive and well known private schools.
 
-Ilustrate: So basically/simply, out of every 100 HSC exam entries from a selective school, approximately 38 would achieve Band 6, compared to only 24 from a private school. Think of it like a sports team that only selects the top athletes in the state, of course that team will win more games than one that accepts anyone who can pay the registration fee. Selective schools operate on this same principle, and the the data I used proves it consistently.
+Illustrate: So basically/simply, out of every 100 HSC exam entries from a selective school, approximately 38 would achieve Band 6, compared to only 24 from a private school. Think of it like a sports team that only selects the top athletes in the state, of course that team will win more games than one that accepts anyone who can pay the registration fee. Selective schools operate on this same principle, and the the data I used proves it consistently.
 
 ### Conclusion
 
@@ -98,7 +98,7 @@ My hypothesis is supported. Selective schools perform significantly better than 
 ### Evaluate Your Project
 
 #### In relation to Requirements Outline
-The system does everything it was supposed to. The CSV file loads correctly, missing values are handled, and all three charts save successfully. The menu works correctly and shows an error message if the user types something invalid.
+The system successfully meets all functional requirements defined in the initial design specification. The CSV file loads correctly, missing values are handled, and all three charts save successfully. The menu works correctly and shows an error message if the user types something invalid.
 
 #### In relation to Peer Feedback
 Friend-Mrigaank
@@ -110,7 +110,7 @@ Minus-The charts/graphs are not displayed automatically and are saved as chart.p
 Implication-Use more matplotlib for graph printing
 
 #### In relation to Project Management
-The project was completed in order across all 4 phases. Having a plan in Phase 1 made the coding in Phase 3 much easier. More time could have been spent on making the charts look better and adding more aestetic stuff to the menu.
+The project was completed in order across all 4 phases. Having a plan in Phase 1 made the coding in Phase 3 much easier. More time could have been spent on making the charts look better and adding more aesthetic improvements to the menu.
 
 #### In relation to Data and Security
 The data came from Matrix Education's 2025 NSW High School Rankings which uses official HSC results, so it is accurate and reliable. However it only covers 3 years and only measures Band 6 results, not how much students improved. 
@@ -141,7 +141,7 @@ However, there are some limitations:
 - In the compare schools option search results only return the first match if multiple schools match
 - Some features depend on clean data (missing values could make results incorrect)
 
-Overall, the system meets the most requirements but could be improved in error handling and I guess flexibility or more options to provide better results.
+Overall, the system meets the most requirements but could be improved in error handling and flexibility or more options to provide better results.
 
 ### 2. Evaluation in relation to peer feedback
 
@@ -212,7 +212,7 @@ The UX is simple but could be improved:
 Improvements:
 
 - Improve readability of outputs (better spacing and formatting especially the data set)
-- Add error messages that are more user friendly I think?
+- Add error messages that are more user friendly
 
 Accessibility could also be improved by:
 
