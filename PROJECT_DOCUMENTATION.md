@@ -49,14 +49,13 @@ Main Flow:
    - View summary statistics (total schools, average success rate)
    - Search for a specific school by name
    - View one of three charts (top 10, school type comparison, 3 year average)
-   - Update a school's success rate
-   - Save changes back to the CSV
+   - Compare 2 schools 
+   - See if a schools ranking went up, down or stayed the same from 2024-2025
 3. System performs the action and displays the result in the terminal. Charts are saved as chart.png.
 
 Postconditions:
 - User has viewed and or interacted with the data
-- Any updates made are saved to schoolrank.csv
-- Full Data remains available for any further questions
+- Full Data remains available for any other reasons
 
 ---
 
@@ -86,18 +85,15 @@ Postconditions:
 
 Statement: Selective schools achieve significantly higher HSC success rates than private and public schools in NSW, strongly supporting the hypothesis.
 
-Elaborate: This is likely because selective schools admit students solely based on academic ability through a competitive entry exam, meaning every 
-student who enters has already demonstrated above average ability before starting high school. This creates a learning environment where everyone is 
-motivated and competitive, giving selective schools a structural advantage that private schools cannot match despite having more funding and resources, and 
-that public schools cannot match as they must accept all students in their local area regardless of ability.
+Elabarate: This is likely because selective schools admit students solely based on academic ability through a competitive entry exam, meaning every student who enters has already demonstrated above average ability before starting high school. This creates a learning environment where everyone is motivated and competitive, giving selective schools a structural advantage that private schools cannot match despite having more funding and resources, and that public schools cannot match as they must accept all students in their local area regardless of ability.
 
 Example: After analysing 149 (not including the unknown ones) NSW schools from 2023 to 2025, my program calculated that selective schools averaged a success rate of 37.84% compared to just 24.19% for private schools, a gap of over 13%. The top 8 ranked schools in 2025 were all selective, with North Sydney Boys leading at 71.6% and James Ruse at 70.43%, far ahead of the top private school Sydney Grammar at 60.99%. Even mid ranked selective schools like Gosford High School ranked 33rd outperformed many expensive and well known private schools.
 
-Illustrate: To put this simply, out of every 100 HSC exam entries from a selective school, approximately 38 would achieve Band 6, compared to only 24 from a private school. Think of it like a sports team that only selects the top athletes in the state of course that team will win more games than one that accepts anyone who can pay the registration fee. Selective schools operate on this same principle, and the 2023-2025 data proves it consistently.
+Ilustrate: So basically/simply, out of every 100 HSC exam entries from a selective school, approximately 38 would achieve Band 6, compared to only 24 from a private school. Think of it like a sports team that only selects the top athletes in the state, of course that team will win more games than one that accepts anyone who can pay the registration fee. Selective schools operate on this same principle, and the the data I used proves it consistently.
 
 ### Conclusion
 
-The hypothesis is supported. Selective schools perform significantly better than private and public schools based on 2023-2025 NSW data, with an average success rate 13.65%  higher than private schools. However this may simply reflect the fact that selective schools start with stronger students rather than being better schools overall.
+My hypothesis is supported. Selective schools perform significantly better than private and public schools based on 2023-2025 NSW data, with an average success rate 13.65%  higher than private schools. However this may simply reflect the fact that selective schools start with stronger students rather than being better schools overall.
 
 ### Evaluate Your Project
 
@@ -105,11 +101,16 @@ The hypothesis is supported. Selective schools perform significantly better than
 The system does everything it was supposed to. The CSV file loads correctly, missing values are handled, and all three charts save successfully. The menu works correctly and shows an error message if the user types something invalid.
 
 #### In relation to Peer Feedback
-Will complete in next class
+Friend-Mrigaank
+
+Plus-Variety of Functions that work and display different graphs
+
+Minus-The charts/graphs are not displayed automatically and are saved as chart.png to view 
+
+Implication-Use more matplotlib for graph printing
 
 #### In relation to Project Management
-The project was completed in order across all 4 phases. Having a plan in Phase 1 made the coding in Phase 3 much easier. More time could have been 
-spent on making the charts look better and adding more aestetic stuff to the menu.
+The project was completed in order across all 4 phases. Having a plan in Phase 1 made the coding in Phase 3 much easier. More time could have been spent on making the charts look better and adding more aestetic stuff to the menu.
 
 #### In relation to Data and Security
 The data came from Matrix Education's 2025 NSW High School Rankings which uses official HSC results, so it is accurate and reliable. However it only covers 3 years and only measures Band 6 results, not how much students improved. 
@@ -120,4 +121,101 @@ Security could be better by adding a password to stop people changing the data.
 
 
 # Mind Map
-as an image on 9CT-TASK 1
+!['mindmap'](mindmap/Mindmap.png)
+
+# Evaluation
+### 1. Evaluation in relation to Requirements Outline
+
+The system meets most of the requirements from the outline. It can load a dataset of schools, search for specific schools, compare results, show ranking changes, and display visual graphs.
+
+The system successfully:
+
+- Displays summary statistics (success rate, number of schools)
+- Allows searching for a school by name
+- Compares two schools
+- Shows ranking changes over time
+- Produces visualisations (bar charts and pie charts)
+
+However, there are some limitations:
+
+- In the compare schools option search results only return the first match if multiple schools match
+- Some features depend on clean data (missing values could make results incorrect)
+
+Overall, the system meets the most requirements but could be improved in error handling and I guess flexibility or more options to provide better results.
+
+### 2. Evaluation in relation to peer feedback
+
+Peer feedback (Mrigaank) showed that the system is:
+
+- Easy to use with simple input prompts
+- Helpful for comparing schools quickly
+- Clear in displaying rankings and success rates
+
+However, Mrigaank suggested improvements:
+
+- Make graphs open automatically instead of saving the files as a png (I fixed this one)
+- Allow better search results (e.g. showing multiple schools more clearly)
+- Add more interactive features or filters
+
+These suggestions helped improve usability and guided changes like using plt.show() instead of saving images.
+
+### 3. Evaluation in relation to project management
+
+The project was managed in stages:
+
+Planning: Defined features like search, comparison, and graphs
+
+Development: Built each function separately and tested them
+
+Testing: Checked outputs using different school names and inputs
+
+Improvement: Refined code based on errors and feedback
+
+Strengths:
+
+Code was structured into separate functions
+Features were built step-by-step
+Easy to debug because each function is independent
+
+Weaknesses:
+
+- Some features were added late and not fully polished
+- Limited time for other improvements for the comparison and school rank up or down.
+
+Overall, project management was effective but could be improved with earlier testing and planning of edge cases.
+
+### 4. Evaluation of data and security
+Data validity, accuracy, and timelinessThe dataset appears mostly valid and structured correctly (schools, rankings, success rates). Accuracy depends on the original source of the data (assumed to be correct school performance data).The data may not be fully timely if it is not updated yearly.
+
+The data may be biased because:
+- It compares selective vs private schools, which have different entry requirements
+- Success rate does not account for student background or resources
+- This means conclusions should be interpreted carefully.
+
+### 5. Security and improvements
+
+Current system security is basic because:
+
+It only reads a local CSV file
+No user accounts or sensitive personal data are stored
+
+Possible improvements:
+
+- Validate user input more strictly (prevent invalid search inputs)
+- Ensure dataset file cannot be accidentally modified by users
+
+
+### 6. UX (User Experience) and accessibility improvements
+
+The UX is simple but could be improved:
+
+Improvements:
+
+- Improve readability of outputs (better spacing and formatting especially the data set)
+- Add error messages that are more user friendly I think?
+
+Accessibility could also be improved by:
+
+- Using larger labels in graphs
+- Avoiding dense text outputs
+- Ensuring clear instructions at each step

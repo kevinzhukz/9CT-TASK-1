@@ -1,5 +1,3 @@
-import matplotlib
-matplotlib.use('Agg')
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -42,39 +40,48 @@ def display_visualisation():
     print("\n1. Top 10 Schools")
     print("2. Selective vs Private")
     print("3. Rankings Over 3 Years")
-    print("Delete graph after viewing to ensure it works properly")
+
     choice = input("Choose a graph (1-3): ")
 
     if choice == '1':
         top10 = dataset_df.head(10)
+
+        plt.figure()
         plt.bar(top10["School"], top10["Success Rate (%)"])
         plt.xticks(rotation=45, ha="right")
         plt.title("Top 10 Schools")
         plt.ylabel("Success Rate (%)")
         plt.tight_layout()
-        plt.savefig("chart.png")
-        print("Chart saved as chart.png!")
+        plt.show()
 
     elif choice == '2':
         avg = dataset_df.groupby("Type of School")["Success Rate (%)"].mean().dropna()
+
+        plt.figure()
         plt.pie(avg, labels=avg.index)
         plt.title("Success Rate by School Type")
-        plt.savefig("chart.png")
-        print("Chart saved as chart.png")
+        plt.show()
 
     elif choice == '3':
         top5 = dataset_df.head(5).copy()
+
         top5["2025 School Ranking"] = pd.to_numeric(top5["2025 School Ranking"], errors='coerce')
         top5["2024 School Ranking"] = pd.to_numeric(top5["2024 School Ranking"], errors='coerce')
         top5["2023 School Ranking"] = pd.to_numeric(top5["2023 School Ranking"], errors='coerce')
-        avg_rank = (top5["2025 School Ranking"] + top5["2024 School Ranking"] + top5["2023 School Ranking"]) / 3
+
+        avg_rank = (
+            top5["2025 School Ranking"] +
+            top5["2024 School Ranking"] +
+            top5["2023 School Ranking"]
+        ) / 3
+
+        plt.figure()
         plt.bar(top5["School"], avg_rank)
         plt.xticks(rotation=45, ha="right")
         plt.title("Top 5 Schools - Average Ranking 2023-2025")
         plt.ylabel("Average Ranking")
         plt.tight_layout()
-        plt.savefig("chart.png")
-        print("Chart saved as chart.png")
+        plt.show()
 
     else:
         print("Invalid option")
@@ -85,7 +92,7 @@ def compare_schools():
     school1 = dataset_df[dataset_df["School"].str.contains(name1, case=False)]
     school2 = dataset_df[dataset_df["School"].str.contains(name2, case=False)]
     if school1.empty or school2.empty:
-        print("School not found.")
+        print("School not found")
     else:
         print("\n======== COMPARISON ========")
         print(school1["School"].values[0], "vs", school2["School"].values[0])
