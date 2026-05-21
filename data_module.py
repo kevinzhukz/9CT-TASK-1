@@ -6,45 +6,42 @@ import matplotlib.pyplot as plt
 dataset_df = pd.read_csv('Data/schoolrank.csv')
 
 def display_hypothesis():
-    print("\n========  HYPOTHESIS ========")
-    print("Note: Success rate = percentage of HSC exam entries that scored Band 6 (90+)")
-    print("Selective schools achieve higher HSC success rates")
-    print("than private schools due to their academically")
-    print("selective enrolment process.")
+    print("\n======== HYPOTHESIS ========")
+    print("Note: Success rate = % of HSC entries that scored Band 6 (90+)")
+    print("Selective schools achieve higher HSC success rates than private schools.")
     print()
     selective = dataset_df[dataset_df["Type of School"] == "Selective"]["Success Rate (%)"].mean()
     private = dataset_df[dataset_df["Type of School"] == "Private"]["Success Rate (%)"].mean()
     print("Average Selective school success rate:", round(selective, 2), "%")
     print("Average Private school success rate:", round(private, 2), "%")
     if selective > private:
-        print("\nResult: Hypothesis is supported ")
+        print("Hypothesis is supported")
     else:
-        print("\nResult: Hypothesis is not supported")
-
-def _display_table(table,df):
-    print(f"\n{table}")
-    print("-" * len(table))
-    print(df.to_string(index=False))
-    print()
+        print("Hypothesis is not supported")
 
 def display_dataset_preview():
-    _display_table("2023-2025 School Rankings Dataset",dataset_df)
- 
+    print("\n======== DATASET ========")
+    print(dataset_df)
+
 def display_summary_statistics():
-    print("note: Success rate = percentage of HSC exam entries that scored Band 6 (90+)")
+    print("\n======== SUMMARY ========")
+    print("Note: Success rate = % of HSC entries that scored Band 6 (90+)")
     print("Total schools:", len(dataset_df))
     print("Average success rate:", round(dataset_df["Success Rate (%)"].mean(), 2), "%")
- 
+
 def search_data():
     name = input("Enter school name: ")
-    print(dataset_df[dataset_df["School"].str.contains(name, case=False)])
- 
+    results = dataset_df[dataset_df["School"].str.contains(name, case=False)]
+    if results.empty:
+        print("No school found.")
+    else:
+        print(results)
+
 def display_visualisation():
     print("\n1. Top 10 Schools")
     print("2. Selective vs Private")
     print("3. Rankings Over 3 Years")
     print("Delete graph after viewing to ensure it works properly")
-    
     choice = input("Choose a graph (1-3): ")
 
     if choice == '1':
@@ -79,17 +76,14 @@ def display_visualisation():
         print("Chart saved as chart.png")
 
     else:
-        print('Not a Option')
-    
+        print("Invalid option")
+
 def update_data_entry():
     name = input("Enter school name: ")
     new_rate = input("Enter new success rate: ")
     dataset_df.loc[dataset_df["School"] == name, "Success Rate (%)"] = new_rate
     print("Updated")
- 
+
 def save_changes():
     dataset_df.to_csv('Data/schoolrank.csv', index=False)
     print("Saved")
-
-
-
