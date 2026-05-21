@@ -44,7 +44,7 @@ Preconditions:
 Main Flow:
 1. User runs the program and sees the welcome message and numbered menu.
 2. User selects one of the following options:
-   - View hypothesis and see if selective schools outperform private schools
+   - View hypothesis and see if selective schools do better than private schools
    - View the full dataset
    - View summary statistics (total schools, average success rate)
    - Search for a specific school by name
