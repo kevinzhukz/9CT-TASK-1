@@ -21,7 +21,8 @@ def display_hypothesis():
 
 def display_dataset_preview():
     print("\n======== DATASET ========")
-    print(dataset_df)
+    pd.set_option('display.max_columns', None)
+    print(dataset_df.to_string())
 
 def display_summary_statistics():
     print("\n======== SUMMARY ========")
@@ -35,7 +36,7 @@ def search_data():
     if results.empty:
         print("No school found.")
     else:
-        print(results)
+        print(results.to_string())
 
 def display_visualisation():
     print("\n1. Top 10 Schools")
@@ -80,7 +81,7 @@ def display_visualisation():
 
 def update_data_entry():
     name = input("Enter school name: ")
-    new_rate = input("Enter new success rate: ")
+    new_rate = float(input("Enter new success rate: "))
     dataset_df.loc[dataset_df["School"] == name, "Success Rate (%)"] = new_rate
     print("Updated")
 

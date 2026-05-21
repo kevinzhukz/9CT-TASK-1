@@ -13,7 +13,7 @@ import time
 def typewrite(text):
     for char in text:
         print(char, end='', flush=True)
-        time.sleep(0.015)
+        time.sleep(0.001)
     print()
 
 def main_menu():
