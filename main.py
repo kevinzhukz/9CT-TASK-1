@@ -3,8 +3,8 @@ from data_module import (
     display_summary_statistics,
     search_data,
     display_visualisation,
-    update_data_entry,
-    save_changes,
+    compare_schools,
+    show_ranking_change,
     display_hypothesis,
 )
 
@@ -31,8 +31,8 @@ def main_menu():
         typewrite("║  3. Summary statistics               ║")
         typewrite("║  4. Search for a school              ║")
         typewrite("║  5. View chart                       ║")
-        typewrite("║  6. Update a school                  ║")
-        typewrite("║  7. Save changes                     ║")
+        typewrite("║  6. Compare two schools              ║")
+        typewrite("║  7. Show rank change for a school    ║")
         typewrite("║  8. Exit                             ║")
         typewrite("╚══════════════════════════════════════╝")
 
@@ -48,9 +48,9 @@ def main_menu():
         elif choice == "5":
             display_visualisation()
         elif choice == "6":
-            update_data_entry()
+            compare_schools()
         elif choice == "7":
-            save_changes()
+            show_ranking_change()
         elif choice == "8":
             print("\nGoodbye!")
             break

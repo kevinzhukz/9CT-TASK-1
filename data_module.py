@@ -79,12 +79,40 @@ def display_visualisation():
     else:
         print("Invalid option")
 
-def update_data_entry():
-    name = input("Enter school name: ")
-    new_rate = float(input("Enter new success rate: "))
-    dataset_df.loc[dataset_df["School"] == name, "Success Rate (%)"] = new_rate
-    print("Updated")
+def compare_schools():
+    name1 = input("Enter first school name: ")
+    name2 = input("Enter second school name: ")
+    school1 = dataset_df[dataset_df["School"].str.contains(name1, case=False)]
+    school2 = dataset_df[dataset_df["School"].str.contains(name2, case=False)]
+    if school1.empty or school2.empty:
+        print("School not found.")
+    else:
+        print("\n======== COMPARISON ========")
+        print(school1["School"].values[0], "vs", school2["School"].values[0])
+        print("2025 Ranking:", school1["2025 School Ranking"].values[0], "vs", school2["2025 School Ranking"].values[0])
+        print("Success Rate:", school1["Success Rate (%)"].values[0], "vs", school2["Success Rate (%)"].values[0])
+        print("Type:", school1["Type of School"].values[0], "vs", school2["Type of School"].values[0])
 
-def save_changes():
-    dataset_df.to_csv('Data/schoolrank.csv', index=False)
-    print("Saved")
+def show_ranking_change():
+    name = input("Enter school name: ")
+
+    results = dataset_df[dataset_df["School"].str.contains(name, case=False)]
+
+    if results.empty:
+        print("No school found.")
+
+    else:
+        rank2024 = int(results["2024 School Ranking"].values[0])
+        rank2025 = int(results["2025 School Ranking"].values[0])
+
+        print("2024 Ranking:", rank2024)
+        print("2025 Ranking:", rank2025)
+
+        if rank2025 < rank2024:
+            print("Went up", rank2024 - rank2025, "places")
+
+        elif rank2025 > rank2024:
+            print("Went down", rank2025 - rank2024, "places")
+
+        else:
+            print("No change")
